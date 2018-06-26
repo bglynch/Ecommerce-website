@@ -10,7 +10,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['django-ecommerce-bglynch.c9users.io']
+ALLOWED_HOSTS = ['django-ecommerce-bglynch.c9users.io', 'bglynch-ecommerce.herokuapp.com']
 
 
 # Application definition
