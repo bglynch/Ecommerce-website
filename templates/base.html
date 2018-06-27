@@ -21,7 +21,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{% url 'home' %}"><img src="#"></img></a>
+                <a class="navbar-brand" href="{% url 'home' %}"><img height=35 src="{% static 'images/logo.png' %}"></img></a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
@@ -32,7 +32,7 @@
                     {% else %}
                     <li><a href="#">Register</a></li>
                     <li><a href="#">Login</a></li>
-                    <li><a href="{% url 'get_cart' %}">Cart</a></li>
+                    <li><a href="{% url 'get_cart' %}"><span class="glyphicon glyphicon-shopping-cart"></span>  <span class="badge">{{items_total}}</span></a></li>
                     {% endif %}
                 </ul>
             </div>

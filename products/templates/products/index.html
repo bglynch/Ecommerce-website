@@ -12,7 +12,7 @@
                         <p><span class="boldtext">Description: </span>{{ product.description|truncatewords:30 }}</p>
                         <p><span class="boldtext">Price:</span> {{ product.price }} </p>
                         <p><span class="boldtext">Brand:</span> {{ product.brand }}</p>
-                        <img src="{{MEDIA_URL}}{{product.image}}"/>
+                        <img height=250 src="{{MEDIA_URL}}{{product.image}}"/>
 
                         <form method="POST" action="{% url 'cart_add' %}">
                             {% csrf_token %}
