@@ -30,7 +30,7 @@
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
                     {% if user.is_authenticated %}
-                    <li><a href="{% url 'get_cart' %}">Cart</a></li>
+                    <li><a href="{% url 'get_cart' %}"><span class="glyphicon glyphicon-shopping-cart"></span>  <span class="badge">{{items_total}}</span></a></li>
                     <li><a href="#">Logout</a></li>
                     <li><a href="#"> Your Account</a></li>
                     {% else %}
@@ -42,7 +42,15 @@
             </div>
         </div>
     </nav>
-
+    {% if messages %}
+        <div class="alert alert-success">
+            <div class="messages">
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
     <div id="masthead">
         <div class="container">
             <div class="row">
