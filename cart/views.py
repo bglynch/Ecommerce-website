@@ -3,28 +3,13 @@
 from django.shortcuts import render, redirect, HttpResponse, get_object_or_404
 from products.models import Product
 from decimal import Decimal
+from .utils import get_cart_items_and_total
 
 # Create your views here.
 def get_cart(request):
     cart =  request.session.get('cart', {})
-    
-    cart_items = []
-    cart_total=0
-    items_total=0
-    for p in cart:
-        product = get_object_or_404(Product, pk = p)
-        
-        cart_item = {
-            'product':product, 
-            'quantity':cart[p],
-            'total':Decimal(product.price*cart[p]),
-        }
-        
-        cart_items.append(cart_item)
-        cart_total += Decimal(product.price*cart[p])
-        items_total += cart[p]
-    
-    return render(request, "cart/viewcart.html", {'cart_items': cart_items, 'cart_total':cart_total, 'items_total':items_total})
+    context= get_cart_items_and_total(cart)
+    return render(request, "cart/viewcart.html", context)
     
 def cart_add(request):
     # Get the product were adding
